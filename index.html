@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sebaran Outlet</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+   
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+ integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+ crossorigin=""></script>
+
+ <style>
+    #mapid { height: 500px; }
+ </style>
+
+</head>
+<body>
+    <div id="mapid"></div>
+    <center>
+        <input type="file" id="fileUpload" />
+        <input type="button" id="upload" value="Buka Data" />
+    </center>
+    <hr />
+    <center>
+        <div id="dvExcel"></div>
+    </center>
+    <hr>
+    <div id="copyright"><center>Copyright&copy; 2019 <a href="https://www.facebook.com/moh.a.aulia" target="_blank">Moh. Abdul Haq Aulia</a> | Powered By <a href="https://leafletjs.com/" target="_blank">Leaflet</a></center></div>
+    
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/xlsx.full.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.5/jszip.js"></script>
+<script src="./js/app.js"></script>
+</html>
