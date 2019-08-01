@@ -2,7 +2,36 @@ var latitude = -6.895029;
 var longitude= 112.0627513;
 var markers = new Array();
 
-var mymap = L.map('mapid').setView([latitude,longitude ], 13);
+//var mymap = L.map('mapid').setView([latitude,longitude ], 13);
+
+
+var street = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
+                maxZoom: 20,
+                subdomains:['mt0','mt1','mt2','mt3'],
+                attribution: 'Map data &copy; <a href="google.com">google.com</a>',
+                id: 'google.streets'
+            }),
+
+    satelite   = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
+                maxZoom: 20,
+                subdomains:['mt0','mt1','mt2','mt3'],
+                attribution: 'Map data &copy; <a href="google.com">google.com</a>',
+                id: 'google.streets'
+            });
+
+var mymap = L.map('mapid', {
+    center: [latitude, longitude],
+    zoom: 10,
+    layers: [satelite, street],
+    fullscreenControl: true,
+});
+
+var baseMaps = {
+    "Satelite": satelite,
+    "Streets": street
+};
+
+L.control.layers(baseMaps).addTo(mymap);
 
 var LeafIcon = L.Icon.extend({
     options: {
@@ -45,6 +74,7 @@ var lainnya = new LeafIcon({
 })
 
 
+/*
 L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
     maxZoom: 20,
     subdomains:['mt0','mt1','mt2','mt3'],
@@ -54,7 +84,6 @@ attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStree
 id: 'mapbox.streets'
 }).addTo(mymap);
 
-/*
 L.marker([latitude, longitude], {icon: aku}).addTo(mymap)
 .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
 
